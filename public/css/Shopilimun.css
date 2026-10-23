@@ -1,0 +1,66 @@
+
+/* Shopilimun Color Palette */
+:root {
+    --bs-body-bg: #f2f2f2;
+    --bs-body-color: #2F3E3A;
+
+    --bs-primary: #6F8A78;
+    --bs-primary-rgb: 111, 138, 120;
+
+    --bs-secondary: #A8BDA3;
+    --bs-secondary-rgb: 168, 189, 163;
+
+    --bs-success: #6F8A78;
+    --bs-success-rgb: 111, 138, 120;
+
+    --bs-light: #D9E6D3;
+    --bs-light-rgb: 217, 230, 211;
+
+    --bs-dark: #2F3E3A;
+    --bs-dark-rgb: 47, 62, 58;
+
+    --bs-link-color: #6F8A78;
+    --bs-link-hover-color: #2F3E3A;
+}
+
+/* Override Morph theme colors */
+body {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}
+
+.navbar {
+    background-color: #2F3E3A;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+    color: #F6F0E6;
+}
+
+.navbar .nav-link:hover {
+    color: #A8BDA3;
+}
+
+.btn-primary {
+    --bs-btn-bg: #6F8A78;
+    --bs-btn-border-color: #6F8A78;
+    --bs-btn-hover-bg: #2F3E3A;
+    --bs-btn-hover-border-color: #2F3E3A;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: #6F8A78;
+    --bs-btn-border-color: #6F8A78;
+    --bs-btn-hover-bg: #6F8A78;
+    --bs-btn-hover-border-color: #6F8A78;
+}
+
+.card {
+    background-color: #b0ecbe;
+}
+
+footer {
+    background-color: #2F3E3A;
+    color: #F6F0E6;
+}
