@@ -10,9 +10,9 @@ class Product extends Model
         'user_id',
         'name',
         'description',
-        'price',
         'category',
         'listing_type',
+        'price',
         'image',
         'status',
     ];

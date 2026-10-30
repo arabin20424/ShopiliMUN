@@ -39,10 +39,15 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            My Inquiries
-                        </a>
+                        <a class="nav-link" href="{{ route('my.inquiries') }}">
+    My Inquiries
+</a>
                     </li>
+                    <li class="nav-item">
+    <a class="nav-link" href="{{ route('seller.inquiries') }}">
+        Seller Inquiries
+    </a>
+</li>
 
                     <li class="nav-item">
     <a class="nav-link" href="{{ route('profile.edit') }}">
@@ -75,7 +80,7 @@
                 Find affordable school supplies and connect with the PLMUN community.
             </p>
 
-            <a href="#" class="btn btn-primary">
+            <a href="{{ route('products.index') }}" class="btn btn-primary">
                 Browse Products
             </a>
         </div>
@@ -92,7 +97,7 @@
                         <p class="card-text">
                             Explore available uniforms, books, and school supplies.
                         </p>
-                        <a href="#" class="btn btn-primary">Explore</a>
+                        <a href="{{ route('products.index') }}" class="btn btn-primary">Explore</a>
                     </div>
                 </div>
             </div>
@@ -104,7 +109,10 @@
                         <p class="card-text">
                             Keep track of the products you have asked sellers about.
                         </p>
-                        <a href="#" class="btn btn-outline-primary">View Inquiries</a>
+                        <a href="{{ route('my.inquiries') }}"
+    class="btn btn-outline-primary">
+    View Inquiries
+</a>
                     </div>
                 </div>
             </div>
