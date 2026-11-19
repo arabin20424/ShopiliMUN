@@ -27,10 +27,12 @@
                 aria-controls="navbarMenu"
                 aria-expanded="false"
                 aria-label="Toggle navigation">
+
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarMenu">
+
                 <ul class="navbar-nav ms-auto align-items-lg-center">
 
                     <li class="nav-item">
@@ -48,21 +50,27 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('my.inquiries') }}">
-    My Inquiries
-</a>
+                            My Inquiries
+                        </a>
                     </li>
+
                     <li class="nav-item">
-    <a class="nav-link" href="{{ route('seller.inquiries') }}">
-        Seller Inquiries
-    </a>
-</li>
+                        <a class="nav-link" href="{{ route('seller.inquiries') }}">
+                            Seller Inquiries
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('my.products') }}">
+                            My Products
+                        </a>
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('profile.edit') }}">
                             {{ Auth::user()->name }}
                         </a>
                     </li>
-                    
 
                     <li class="nav-item">
                         <form method="POST" action="{{ route('logout') }}">
@@ -79,6 +87,7 @@
             </div>
         </div>
     </nav>
+
 
     <!-- Main Content -->
     <main class="container py-5">
@@ -102,8 +111,10 @@
 
         </div>
 
+
         <!-- Success Message -->
         @if (session('success'))
+
             <div class="alert alert-success alert-dismissible fade show"
                 role="alert">
 
@@ -113,23 +124,29 @@
                     data-bs-dismiss="alert"
                     aria-label="Close">
                 </button>
+
             </div>
+
         @endif
 
+
+        <!-- Error Message -->
         @if (session('error'))
-    <div class="alert alert-danger alert-dismissible fade show"
-        role="alert">
 
-        {{ session('error') }}
+            <div class="alert alert-danger alert-dismissible fade show"
+                role="alert">
 
-        <button type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close">
-        </button>
+                {{ session('error') }}
 
-    </div>
-@endif
+                <button type="button" class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close">
+                </button>
+
+            </div>
+
+        @endif
+
 
         <!-- Search and Category Filter -->
         <form method="GET"
@@ -137,9 +154,12 @@
             class="card shadow-sm mb-4">
 
             <div class="card-body">
+
                 <div class="row g-3">
 
+                    <!-- Search -->
                     <div class="col-md-6">
+
                         <label for="search" class="form-label">
                             Search Products
                         </label>
@@ -150,9 +170,13 @@
                             class="form-control"
                             placeholder="Search products..."
                             value="{{ request('search') }}">
+
                     </div>
 
+
+                    <!-- Category -->
                     <div class="col-md-4">
+
                         <label for="category" class="form-label">
                             Category
                         </label>
@@ -164,46 +188,65 @@
                             <option value="">All Categories</option>
 
                             @foreach (['Uniforms', 'Books', 'School Supplies', 'Other'] as $category)
+
                                 <option value="{{ $category }}"
                                     {{ request('category') == $category ? 'selected' : '' }}>
+
                                     {{ $category }}
+
                                 </option>
+
                             @endforeach
 
                         </select>
+
                     </div>
 
+
+                    <!-- Search Button -->
                     <div class="col-md-2 d-flex align-items-end">
+
                         <button type="submit"
                             class="btn btn-outline-primary w-100">
+
                             Search
+
                         </button>
+
                     </div>
 
                 </div>
+
             </div>
+
         </form>
 
+
         <!-- Product Listings Heading -->
-        <h3 class="mb-3">Available Products</h3>
+        <h3 class="mb-3 fw-bold">
+            Available Products
+        </h3>
 
-        <!-- Product Cards -->
-        <div class="row g-4">
 
-            @forelse ($products as $product)
+        <!-- Scrollable Product Listings -->
+        <div class="product-listings-scroll">
 
-                <div class="col-md-6 col-lg-4">
+            <div class="product-grid">
 
-                    <div class="card h-100 shadow-sm">
+                @forelse ($products as $product)
 
-                        <div class="card-body d-flex flex-column">
+                    <!-- Product Card -->
+                    <div class="card product-card shadow-sm border-0">
+
+
+                        <!-- Product Details -->
+                        <div class="card-body">
 
                             <!-- Seller Information -->
                             <div class="d-flex align-items-center gap-2 mb-3">
 
                                 <div class="rounded-circle bg-light border
-                                    d-flex align-items-center justify-content-center"
-                                    style="width: 45px; height: 45px;">
+                                    d-flex align-items-center justify-content-center seller-avatar">
 
                                     <span class="fw-bold">
                                         {{ strtoupper(substr($product->user->name ?? 'U', 0, 1)) }}
@@ -211,8 +254,9 @@
 
                                 </div>
 
-                                <div>
-                                    <div class="fw-bold">
+                                <div class="overflow-hidden">
+
+                                    <div class="fw-bold text-truncate">
                                         {{ $product->user->name ?? 'Seller' }}
                                     </div>
 
@@ -220,146 +264,161 @@
                                         {{ $product->category }}
                                         · For {{ $product->listing_type }}
                                     </small>
+
                                 </div>
 
                             </div>
 
+
                             <!-- Product Name -->
-                            <h5 class="card-title">
+                            <h5 class="card-title product-title fw-bold">
                                 {{ $product->name }}
                             </h5>
 
+
                             <!-- Product Description -->
-                            <p class="card-text text-muted">
+                            <p class="card-text text-muted product-description">
                                 {{ $product->description }}
                             </p>
+
 
                             <!-- Product Image -->
                             @if ($product->image)
 
-                                <img
-                                    src="{{ asset('storage/' . $product->image) }}"
+                                <img src="{{ asset('storage/' . $product->image) }}"
                                     alt="{{ $product->name }}"
-                                    class="img-fluid rounded mb-3 w-100"
-                                    style="height: 220px; object-fit: cover;">
+                                    class="img-fluid product-image">
 
                             @else
 
-                                <div class="bg-light rounded mb-3
-                                    d-flex align-items-center justify-content-center"
-                                    style="height: 220px;">
+                                <div class="product-image d-flex
+                                    justify-content-center align-items-center">
 
                                     <span class="text-muted">
-                                        No image available
+                                        No Image Available
                                     </span>
 
                                 </div>
 
                             @endif
 
+
                             <!-- Product Price -->
-                            <h5 class="text-primary mb-3">
+                            <h5 class="text-primary fw-bold mt-3 mb-3">
+
                                 ₱{{ number_format($product->price, 2) }}
 
                                 @if ($product->listing_type === 'Rent')
+
                                     <small class="text-muted">
                                         rental price
                                     </small>
+
                                 @endif
+
                             </h5>
 
-                            <!-- Owner Actions -->
-                            @if ($product->user_id == Auth::id())
+                        </div>
 
-                                <div class="d-flex gap-2 mt-auto">
 
+                        <!-- Product Action Footer -->
+                        <div class="card-footer">
+
+                            <div class="product-actions">
+
+                                @if ($product->user_id == Auth::id())
+
+                                    <!-- Edit Button -->
                                     <a href="{{ route('products.edit', $product->id) }}"
-                                        class="btn btn-outline-primary flex-fill">
+                                        class="btn btn-outline-primary">
+
                                         Edit
+
                                     </a>
 
-                                    <form
-                                        action="{{ route('products.destroy', $product->id) }}"
+
+                                    <!-- Delete Button -->
+                                    <form action="{{ route('products.destroy', $product->id) }}"
                                         method="POST"
-                                        class="flex-fill"
                                         onsubmit="return confirm('Are you sure you want to delete this product?');">
 
                                         @csrf
                                         @method('DELETE')
 
                                         <button type="submit"
-                                            class="btn btn-outline-danger w-100">
+                                            class="btn btn-outline-danger">
+
                                             Delete
+
                                         </button>
 
                                     </form>
 
-                                </div>
+                                @else
 
-                            @else
+                                    <!-- Inquire Now Button -->
+                                    <form action="{{ route('products.inquire', $product->id) }}" method="POST">
+    @csrf
 
-    <!-- Inquire Now Button -->
-    <form
-        action="{{ route('products.inquire', $product->id) }}"
-        method="POST"
-        class="mt-auto"
-        onsubmit="return confirm('Send an inquiry to this seller?');">
+    <button type="submit" class="btn btn-success">
+        Inquire Now
+    </button>
+</form>
 
-        @csrf
+                                @endif
 
-        <button type="submit"
-            class="btn btn-outline-primary w-100">
+                            </div>
 
-            Inquire Now
+                        </div>
 
-        </button>
+                    </div>
 
-    </form>
-
-@endif
 
                 @empty
 
-    <!-- Empty State -->
-    <div class="col-12">
+                    <!-- Empty State -->
+                    <div class="card shadow-sm product-empty">
 
-        <div class="card shadow-sm">
-            <div class="card-body text-center py-5">
+                        <div class="card-body text-center py-5">
 
-                <h5>No products found</h5>
+                            <h5 class="fw-bold">
+                                No Products Found
+                            </h5>
 
-                <p class="text-muted">
-                    Try another search or post the first product
-                    on the Shopilimun marketplace.
-                </p>
+                            <p class="text-muted">
+                                Try another search or post the first product
+                                on the Shopilimun marketplace.
+                            </p>
 
-                <a href="{{ route('products.create') }}"
-                    class="btn btn-primary">
-                    + Post Product
-                </a>
+                            <a href="{{ route('products.create') }}"
+                                class="btn btn-primary">
+
+                                + Post Product
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                @endforelse
 
             </div>
+
         </div>
 
-    </div>
-
-@endforelse
-        </div>
 
         <!-- Pagination -->
-        <div class="mt-4">
+        <div class="mt-4 d-flex justify-content-center">
+
             {{ $products->links() }}
+
         </div>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="text-center py-3 mt-5">
-        <p class="mb-0">
-            &copy; {{ date('Y') }} Shopilimun.
-            PLMUN Student Marketplace.
-        </p>
-    </footer>
+
+
 
     <!-- Bootstrap JavaScript -->
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>

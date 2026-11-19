@@ -33,40 +33,41 @@ Route::middleware('auth')->group(function () {
     Route::get('/products', [ProductController::class, 'index'])
         ->name('products.index');
 
-    //  Product CRUD
+    // Product CRUD
     Route::get('/products/create', [ProductController::class, 'create'])
         ->name('products.create');
 
     Route::post('/products', [ProductController::class, 'store'])
         ->name('products.store');
 
-Route::get('/products/{id}/edit', [ProductController::class, 'edit'])
-    ->name('products.edit');
+    Route::get('/products/{id}/edit', [ProductController::class, 'edit'])
+        ->name('products.edit');
 
-Route::put('/products/{id}', [ProductController::class, 'update'])
-    ->name('products.update');
+    Route::put('/products/{id}', [ProductController::class, 'update'])
+        ->name('products.update');
 
-Route::delete('/products/{id}', [ProductController::class, 'destroy'])
-    ->name('products.destroy');
+    Route::delete('/products/{id}', [ProductController::class, 'destroy'])
+        ->name('products.destroy');
 
-    Route::post('/products/{product}/inquire', [
-    ProductInquiryController::class,
-    'store'
-])->name('products.inquire');
+    // Product Inquiry
+    Route::post('/products/{product}/inquire', [ProductInquiryController::class, 'store'])
+        ->name('products.inquire');
 
-Route::get('/seller/inquiries', [
-    ProductInquiryController::class,
-    'sellerInquiries'
-])->name('seller.inquiries');
+    // Seller Inquiries
+    Route::get('/seller/inquiries', [ProductInquiryController::class, 'sellerInquiries'])
+        ->name('seller.inquiries');
 
-Route::get('/my-inquiries', [
-    ProductInquiryController::class,
-    'myInquiries'
-])->name('my.inquiries');
-Route::patch('/seller/inquiries/{inquiry}/complete',
-    [ProductInquiryController::class, 'complete']
-)->name('seller.inquiries.complete');
+    // Buyer Inquiries
+    Route::get('/my-inquiries', [ProductInquiryController::class, 'myInquiries'])
+        ->name('my.inquiries');
 
+    // Complete Inquiry
+    Route::patch('/seller/inquiries/{inquiry}/complete', [ProductInquiryController::class, 'complete'])
+        ->name('seller.inquiries.complete');
+
+    // My Products
+    Route::get('/my-products', [ProductController::class, 'myProducts'])
+        ->name('my.products');
 });
 
 require __DIR__.'/auth.php';
