@@ -13,7 +13,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
+    <div class="container-fluid">
         <a class="navbar-brand fw-bold" href="{{ route('dashboard') }}">
             Shopilimun
         </a>
@@ -55,7 +55,7 @@
             </div>
 
             <div class="card shadow-sm">
-                <div class="card-body p-4">
+                <div class="card-body p-5">
 
                     @if ($errors->any())
                         <div class="alert alert-danger">

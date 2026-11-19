@@ -49,11 +49,10 @@ public function index(Request $request)
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
-        if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')
-                ->store('products', 'public');
-        }
-
+       if ($request->hasFile('image')) {
+    $validated['image'] = $request->file('image')
+        ->store('products', 'public');
+}
         $validated['user_id'] = Auth::id();
         $validated['status'] = 'Available';
 
@@ -117,4 +116,14 @@ public function index(Request $request)
         return redirect()->route('products.index')
             ->with('success', 'Product deleted successfully!');
     }
+
+    // My Products: Display products posted by the logged-in user
+    public function myProducts()
+{
+    $products = Product::where('user_id', auth()->id())
+        ->latest()
+        ->paginate(8);
+
+    return view('my-products', compact('products'));
+}
 }
