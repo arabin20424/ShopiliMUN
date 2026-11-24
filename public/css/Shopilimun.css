@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 /* Shopilimun Color Palette */
 :root {
     --bs-body-bg: #f2f2f2;
@@ -24,11 +25,58 @@
 }
 
 /* Override Morph theme colors */
+=======
+/* =========================================
+   SHOPILIMUN COLOR PALETTE
+========================================= */
+
+:root {
+
+    /* Brand Colors */
+    --shopilimun-dark-green: #063B00;
+    --shopilimun-forest-green: #266210;
+    --shopilimun-olive-green: #90B800;
+    --shopilimun-yellow: #E1E100;
+
+    /* Base Layout Settings */
+    --bs-body-bg: #F8F9FA;
+    --bs-body-color: #121A11;
+
+    /* Bootstrap Color Overrides */
+    --bs-primary: #266210;
+    --bs-primary-rgb: 38, 98, 16;
+
+    --bs-secondary: #90B800;
+    --bs-secondary-rgb: 144, 184, 0;
+
+    --bs-success: #266210;
+    --bs-success-rgb: 38, 98, 16;
+
+    --bs-warning: #E1E100;
+    --bs-warning-rgb: 225, 225, 0;
+
+    --bs-light: #F2F7EF;
+    --bs-light-rgb: 242, 247, 239;
+
+    --bs-dark: #063B00;
+    --bs-dark-rgb: 6, 59, 0;
+
+    --bs-link-color: #266210;
+    --bs-link-hover-color: #063B00;
+}
+
+
+/* =========================================
+   BASE BODY STYLES
+========================================= */
+
+>>>>>>> feature-listings
 body {
     background-color: var(--bs-body-bg);
     color: var(--bs-body-color);
 }
 
+<<<<<<< HEAD
 .navbar {
     background-color: #2F3E3A;
 }
@@ -63,4 +111,373 @@ body {
 footer {
     background-color: #2F3E3A;
     color: #F6F0E6;
+=======
+
+/* =========================================
+   NAVIGATION BAR
+========================================= */
+
+.navbar {
+    background-color: var(--shopilimun-dark-green) !important;
+}
+
+.navbar .navbar-brand {
+    color: #FFFFFF !important;
+    font-weight: bold;
+}
+
+.navbar .nav-link {
+    color: #E8F2E6 !important;
+    transition: color 0.2s ease-in-out;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: var(--shopilimun-yellow) !important;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+/* Primary Button */
+.btn-primary {
+    --bs-btn-color: #FFFFFF;
+    --bs-btn-bg: #266210;
+    --bs-btn-border-color: #266210;
+
+    --bs-btn-hover-color: #FFFFFF;
+    --bs-btn-hover-bg: #063B00;
+    --bs-btn-hover-border-color: #063B00;
+
+    --bs-btn-focus-shadow-rgb: 38, 98, 16;
+
+    --bs-btn-active-color: #FFFFFF;
+    --bs-btn-active-bg: #063B00;
+    --bs-btn-active-border-color: #063B00;
+}
+
+
+/* Outline Primary Button */
+.btn-outline-primary {
+    --bs-btn-color: #266210;
+    --bs-btn-border-color: #266210;
+
+    --bs-btn-hover-color: #FFFFFF;
+    --bs-btn-hover-bg: #266210;
+    --bs-btn-hover-border-color: #266210;
+
+    --bs-btn-focus-shadow-rgb: 38, 98, 16;
+
+    --bs-btn-active-color: #FFFFFF;
+    --bs-btn-active-bg: #063B00;
+    --bs-btn-active-border-color: #063B00;
+}
+
+
+/* Warning and Accent Buttons */
+.btn-warning,
+.btn-accent {
+    --bs-btn-color: #063B00;
+    --bs-btn-bg: #E1E100;
+    --bs-btn-border-color: #E1E100;
+
+    --bs-btn-hover-color: #063B00;
+    --bs-btn-hover-bg: #c8c800;
+    --bs-btn-hover-border-color: #c8c800;
+}
+
+
+/* =========================================
+   CARDS
+========================================= */
+
+.card {
+    background-color: #F2F7EF;
+    border: 1px solid #E1E8DF;
+}
+
+.card-header {
+    background-color: var(--bs-light);
+    border-bottom: 1px solid #E1E8DF;
+    color: var(--shopilimun-dark-green);
+}
+
+
+/* =========================================
+   SIDEBAR LIST GROUP NAVIGATION
+========================================= */
+
+.list-group-item-action.active {
+    background-color: var(--shopilimun-forest-green);
+    border-color: var(--shopilimun-forest-green);
+    color: #FFFFFF;
+}
+
+
+/* =========================================
+   SCROLLABLE PRODUCT LISTINGS
+========================================= */
+
+.product-listings-scroll {
+    width: 100%;
+    max-height: 700px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 5px 10px 15px 5px;
+}
+
+
+/* =========================================
+   PRODUCT GRID
+========================================= */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin: 0;
+}
+
+
+/* =========================================
+   UNIFORM PRODUCT CARDS
+========================================= */
+
+.product-card {
+    width: 100%;
+    height: 550px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #FFFFFF;
+    border: 1px solid #E1E8DF;
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+/* Product Details */
+.product-card .card-body {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+    min-height: 0;
+}
+
+
+/* =========================================
+   PRODUCT INFORMATION
+========================================= */
+
+/* Seller Information */
+.seller-avatar {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+}
+
+
+/* Product Name */
+.product-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+    min-height: 48px;
+}
+
+
+/* Product Description */
+.product-description {
+    display: block !important;
+    width: 100%;
+    min-height: 80px;
+    max-height: 80px;
+
+    overflow-y: scroll !important;
+    overflow-x: hidden;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+
+    padding: 5px 8px 5px 0;
+    margin-bottom: 10px;
+
+    color: #555 !important;
+    line-height: 1.5;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Scrollbar */
+.product-description::-webkit-scrollbar {
+    width: 5px;
+}
+
+.product-description::-webkit-scrollbar-thumb {
+    background-color: #90B800;
+    border-radius: 10px;
+}
+
+.product-description::-webkit-scrollbar-track {
+    background-color: #F2F7EF;
+}
+
+/* =========================================
+   PRODUCT IMAGES
+========================================= */
+
+.product-image {
+    width: 100%;
+    height: 250px;
+
+    object-fit: contain;
+    object-position: center;
+
+    display: block;
+
+    background-color: #F2F7EF;
+    border-radius: 8px;
+}
+
+
+/* =========================================
+   PRODUCT ACTION AREA
+========================================= */
+
+.product-card .card-footer {
+    margin-top: auto;
+
+    background-color: #FFFFFF;
+    border: none;
+
+    padding: 15px;
+}
+
+
+/* Product Action Buttons Container */
+.product-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+    width: 100%;
+}
+
+
+/* All Action Buttons */
+.product-actions .btn {
+    flex: 1;
+    width: 100%;
+    height: 44px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 15px;
+
+    white-space: nowrap;
+}
+
+
+/* Product Action Forms */
+.product-actions form {
+    flex: 1;
+
+    display: flex;
+    margin: 0;
+}
+
+.product-actions form button {
+    width: 100%;
+}
+
+
+/* =========================================
+   EMPTY PRODUCT LISTING
+========================================= */
+
+.product-empty {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================
+   PRODUCT LISTING SCROLLBAR
+========================================= */
+
+.product-listings-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+.product-listings-scroll::-webkit-scrollbar-thumb {
+    background: #90B800;
+    border-radius: 10px;
+}
+
+.product-listings-scroll::-webkit-scrollbar-track {
+    background: #F2F7EF;
+}
+
+
+/* =========================================
+   TABLET RESPONSIVENESS
+========================================= */
+
+@media (max-width: 768px) {
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 576px) {
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-card {
+        height: 550px;
+    }
+
+    .product-listings-scroll {
+        max-height: 700px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL SCREEN BUTTON ADJUSTMENTS
+========================================= */
+
+@media (max-width: 400px) {
+
+    .product-actions {
+        gap: 6px;
+    }
+
+    .product-actions .btn {
+        font-size: 13px;
+        height: 42px;
+        border-radius: 12px;
+    }
+
+>>>>>>> feature-listings
 }
