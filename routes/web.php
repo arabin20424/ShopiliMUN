@@ -3,10 +3,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
-<<<<<<< HEAD
-=======
 use App\Http\Controllers\ProductInquiryController;
->>>>>>> feature-listings
 use Illuminate\Support\Facades\Route;
 
 // Welcome Page
@@ -36,18 +33,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/products', [ProductController::class, 'index'])
         ->name('products.index');
 
-<<<<<<< HEAD
-    // Post Product
-=======
     // Product CRUD
->>>>>>> feature-listings
     Route::get('/products/create', [ProductController::class, 'create'])
         ->name('products.create');
 
     Route::post('/products', [ProductController::class, 'store'])
         ->name('products.store');
-<<<<<<< HEAD
-=======
 
     Route::get('/products/{id}/edit', [ProductController::class, 'edit'])
         ->name('products.edit');
@@ -77,7 +68,6 @@ Route::middleware('auth')->group(function () {
     // My Products
     Route::get('/my-products', [ProductController::class, 'myProducts'])
         ->name('my.products');
->>>>>>> feature-listings
 });
 
 require __DIR__.'/auth.php';
