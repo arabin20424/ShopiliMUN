@@ -130,7 +130,7 @@
                             <ul class="list-unstyled text-start mx-auto small text-muted mb-0">
                                 <li class="d-flex align-items-start gap-2 mb-2">
                                     <span class="text-success fw-bold">✓</span>
-                                    Verified PLMUN email required
+                                    Email required
                                 </li>
                                 <li class="d-flex align-items-start gap-2 mb-2">
                                     <span class="text-success fw-bold">✓</span>

@@ -304,19 +304,16 @@
 
 
                             <!-- Product Price -->
-                            <h5 class="text-primary fw-bold mt-3 mb-3">
+                            <!-- Product Price -->
+<h5 class="text-primary fw-bold mt-3 mb-3">
+    ₱{{ number_format((float) ($product->price ?? 0), 2) }}
 
-                                ₱{{ number_format($product->price, 2) }}
-
-                                @if ($product->listing_type === 'Rent')
-
-                                    <small class="text-muted">
-                                        rental price
-                                    </small>
-
-                                @endif
-
-                            </h5>
+    @if ($product->listing_type === 'Rent')
+        <small class="text-muted">
+            rental price
+        </small>
+    @endif
+</h5>
 
                         </div>
 
